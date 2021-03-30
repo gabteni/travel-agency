@@ -1,5 +1,7 @@
 package isg.pfe.travelAgency.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ public class VehicleModel {
     private int seatCount;
     private int fuelEco;
     @OneToMany(mappedBy = "model")
+    @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
     private List<Vehicle> vehicles;
 
 }

@@ -22,7 +22,7 @@ public class VehicleModelController {
     public ResponseEntity<List<VehicleModel>> getAllVehicleModels(){
         return vehicleModelServices.ListVehicleModel();
     }
-    @PutMapping("/Update")
+    @PutMapping("/Update/{id}")
     public  ResponseEntity updateVehicleModel(@PathVariable Long id,@RequestBody VehicleModel vehicleModel){
         return vehicleModelServices.UpdateVehicleModel(id,vehicleModel);
     }

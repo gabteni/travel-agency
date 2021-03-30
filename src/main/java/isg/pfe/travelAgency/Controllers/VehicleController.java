@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value="/Vehicles")
-public class VehicleController {
+public class    VehicleController {
     private final Logger Log = LoggerFactory.getLogger(Vehicle.class);
     @Autowired
     VehicleServices vehicleServices;
@@ -21,7 +21,7 @@ public class VehicleController {
     public ResponseEntity<List<Vehicle>> getAllVehicles(){
         return vehicleServices.ListVehicle();
     }
-    @PutMapping("/Update")
+    @PutMapping("/Update/{id}")
     public  ResponseEntity updateVehicle(@PathVariable Long id,@RequestBody Vehicle vehicle){
         return vehicleServices.UpdateVehicle(id,vehicle);
     }

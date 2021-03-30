@@ -1,7 +1,7 @@
 package isg.pfe.travelAgency.Entities;
 
-import jdk.internal.jline.internal.Nullable;
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +25,6 @@ public class Location {
     private String name;
     private String latitude;
     private String longitude;
-    @Nullable
     private String email;
 
 }

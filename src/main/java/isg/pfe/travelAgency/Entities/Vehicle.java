@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @Entity
-public class Vehicle {
+public class    Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

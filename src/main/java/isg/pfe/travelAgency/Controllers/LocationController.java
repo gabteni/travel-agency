@@ -23,7 +23,7 @@ public class LocationController {
     public ResponseEntity<List<Location>>getAllLocations(){
         return locationServices.ListLocations();
     }
-    @PutMapping("/Update")
+    @PutMapping("/Update/{id}")
     public  ResponseEntity updateLocation(@PathVariable Long id,@RequestBody Location location){
         return locationServices.UpdateLocation(id,location);
     }
