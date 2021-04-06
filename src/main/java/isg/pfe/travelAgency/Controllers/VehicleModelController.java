@@ -38,4 +38,5 @@ public class VehicleModelController {
     public  ResponseEntity findVehicleModel(@PathVariable ("id")long id){
         Log.info("Request for finding vehicle model {}",id);
         return vehicleModelServices.FindVehicleModel(id);}
+
 }

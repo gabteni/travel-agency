@@ -37,6 +37,11 @@ public class UserController {
     public  ResponseEntity findUser(@PathVariable ("id")long id){
         Log.info("Request for finding location {}",id);
         return userServices.FindUser(id);
+
+    }@GetMapping(value = "/findName/{name}")
+    public  ResponseEntity findUserNyName(@PathVariable ("name")String name){
+        Log.info("Request for finding location {}",name);
+        return userServices.FindUserName(name);
     }
 
     /*@RequestMapping("/login")
