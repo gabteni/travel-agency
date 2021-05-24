@@ -11,4 +11,5 @@ public interface LocationServices {
     ResponseEntity DeleteLocation(Long id);
     ResponseEntity UpdateLocation(Long id,Location newLocation);
     ResponseEntity FindLocation(Long id);
+    ResponseEntity Optimize(List<Location> locations);
 }

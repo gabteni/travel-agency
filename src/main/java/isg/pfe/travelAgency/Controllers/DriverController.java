@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping(value="/Drivers")
 public class DriverController {
     private final Logger Log = LoggerFactory.getLogger(Driver.class);

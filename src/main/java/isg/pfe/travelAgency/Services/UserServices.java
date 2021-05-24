@@ -2,7 +2,6 @@ package isg.pfe.travelAgency.Services;
 
 import isg.pfe.travelAgency.Entities.Location;
 import isg.pfe.travelAgency.Entities.UserU;
-import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

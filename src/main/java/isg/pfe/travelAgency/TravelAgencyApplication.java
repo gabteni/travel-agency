@@ -1,13 +1,7 @@
 package isg.pfe.travelAgency;
 
-import isg.pfe.travelAgency.Entities.Location;
-import isg.pfe.travelAgency.Entities.UserU;
-import isg.pfe.travelAgency.Entities.Vehicle;
-import isg.pfe.travelAgency.Entities.VehicleModel;
-import isg.pfe.travelAgency.Repositories.LocationRepository;
-import isg.pfe.travelAgency.Repositories.UserRepository;
-import isg.pfe.travelAgency.Repositories.VehicleModelRepository;
-import isg.pfe.travelAgency.Repositories.VehicleRepository;
+import isg.pfe.travelAgency.Entities.*;
+import isg.pfe.travelAgency.Repositories.*;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,13 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
+import sun.awt.SunHints;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -40,8 +29,8 @@ public class TravelAgencyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TravelAgencyApplication.class, args);
 	}
-	@Bean
-	ApplicationRunner initPlayers(UserRepository plRepos)
+	/*@Bean
+	ApplicationRunner initUsers(UserRepository plRepos)
 	{	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
 
 		return x ->{
@@ -51,17 +40,46 @@ public class TravelAgencyApplication {
 			).forEach(plRepos::save);
 		} ;
 	}
-
 	@Bean
 	ApplicationRunner initLocations(LocationRepository plRepos)
 	{
 
 		return x ->{
 			Stream.of(
-					new Location()
+					new Location(),new Location()
+			).forEach(plRepos::save);
+		} ;
+	}@Bean
+	ApplicationRunner initDrivers(DriverRepository plRepos)
+	{
+
+		return x ->{
+			Stream.of(
+					new Driver("sqd","sqds"),new Driver("eeza","dqsds")
 			).forEach(plRepos::save);
 		} ;
 	}
+	/*@Bean
+	ApplicationRunner initlocation(TripRepository plRepos,LocationRepository LR ,DriverRepository Dr)
+	{	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+
+		return x ->{
+			Stream.of(
+					new Trip(LR.findById(new Long(1)).get(),LR.findById(new Long(2)).get(),Dr.findById(new Long(1)).get())
+			).forEach(plRepos::save);
+		} ;
+	}
+	@Bean
+	ApplicationRunner initGuests(GuestRepository plRepos)
+	{
+
+		return x ->{
+			Stream.of(
+					new Guest("Xd","ageGrp")
+			).forEach(plRepos::save);
+		} ;
+	}
+
 	@Bean
 	ApplicationRunner initMode(VehicleModelRepository plRepos)
 	{
@@ -71,7 +89,7 @@ public class TravelAgencyApplication {
 					new VehicleModel()
 			).forEach(plRepos::save);
 		} ;
-	}
+	}*/
 	/*@Bean
 	ApplicationRunner initVehic(VehicleRepository plRepos)
 	{

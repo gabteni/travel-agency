@@ -1,5 +1,7 @@
 package isg.pfe.travelAgency.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +31,7 @@ public class    Vehicle {
     private String state;
     private LocalDate serviceStartDate;
 
+    @OneToMany(mappedBy = "vehicle",cascade = CascadeType.ALL)
+    @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
+    private List<Trip> trips;
     }

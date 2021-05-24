@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping(value="/Locations")
 
 public class LocationController {
@@ -27,6 +27,11 @@ public class LocationController {
     public  ResponseEntity updateLocation(@PathVariable Long id,@RequestBody Location location){
         return locationServices.UpdateLocation(id,location);
     }
+    @PostMapping("Optimize")
+    public ResponseEntity<List<Location>>Optimize(@RequestBody List<Location> locations){
+        return locationServices.Optimize(locations);
+    }
+
     @PostMapping("/New")
     public  ResponseEntity<?> addLocation(@RequestBody Location location){
         return locationServices.SaveLocation(location);

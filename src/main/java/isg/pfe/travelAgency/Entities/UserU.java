@@ -13,17 +13,19 @@ public class UserU {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true,nullable = false,name ="username")
     private String userName;
      @Column(nullable = false)
     private String password;
-
+    private String name ;
     private String role;
-    private String NIC;
+
+
 
 
     public UserU(String userName, String password) {
         this.userName = userName;
         this.password = password;
+
     }
 }

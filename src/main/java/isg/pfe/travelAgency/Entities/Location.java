@@ -1,12 +1,12 @@
 package isg.pfe.travelAgency.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import org.springframework.lang.Nullable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.google.maps.model.DistanceMatrix;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,8 +23,23 @@ public class Location {
     private String phoneNumber;
     private String address;
     private String name;
-    private String latitude;
-    private String longitude;
+    private float latitude;
+    private float longitude;
     private String email;
+
+    @OneToMany(/*mappedBy = "destination"*/targetEntity = Trip.class)
+    @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
+
+    private List<Trip> trips;
+    @OneToMany(mappedBy = "currentPickUpLocation",cascade = CascadeType.ALL)
+    @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
+    private List<Guest> guests;
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(
+            name = "location_trip",
+            joinColumns = @JoinColumn(name = "location_id"),
+            inverseJoinColumns = @JoinColumn(name = "trip_id"))
+    public List<Trip>trips1;
+
 
 }

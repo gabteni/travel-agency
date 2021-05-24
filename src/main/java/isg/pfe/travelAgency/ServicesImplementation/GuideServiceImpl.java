@@ -8,6 +8,7 @@ import isg.pfe.travelAgency.Services.GuideServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class GuideServiceImpl implements GuideServices {
     GuideRepository guideRepository;
     @Override
     public ResponseEntity<?> SaveGuide(Guide guide) {
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        guide.setPassword(encoder.encode(guide.getPassword()));
         return new ResponseEntity<>(guideRepository.save(guide), HttpStatus.CREATED);
     }
 

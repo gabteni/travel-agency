@@ -7,6 +7,7 @@ import isg.pfe.travelAgency.Services.DriverServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public class DriverServiceImpl implements DriverServices {
     DriverRepository driverRepository;
     @Override
     public ResponseEntity<?> SaveDriver(Driver driver) {
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        driver.setPassword(encoder.encode(driver.getPassword()));
         return new ResponseEntity<>(driverRepository.save(driver), HttpStatus.CREATED);
     }
 

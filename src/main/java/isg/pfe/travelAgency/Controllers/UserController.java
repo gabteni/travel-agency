@@ -1,23 +1,15 @@
 package isg.pfe.travelAgency.Controllers;
-
-import isg.pfe.travelAgency.Entities.Location;
-import isg.pfe.travelAgency.Entities.MyUserDetails;
-import isg.pfe.travelAgency.Entities.UserDetailsImp;
 import isg.pfe.travelAgency.Entities.UserU;
 import isg.pfe.travelAgency.Services.UserServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
-import java.util.Base64;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins={"*"})
+
 @RequestMapping(value="/User")
 public class UserController {
     private final Logger Log = LoggerFactory.getLogger(UserU.class);

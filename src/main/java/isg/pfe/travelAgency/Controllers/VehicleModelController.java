@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping(value="/VehicleModels")
 public class VehicleModelController {
     private final Logger Log = LoggerFactory.getLogger(VehicleModel.class);

@@ -1,15 +1,15 @@
 package isg.pfe.travelAgency.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +22,20 @@ public class Guest {
     private Long id;
     private String name;
     private String ageGroup;
-    private LocalDate birthdate;
+    private LocalDate birthDate;
+    private String phoneNum;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location currentPickUpLocation;
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(
+            name = "guest_trip",
+            joinColumns = @JoinColumn(name = "guest_id"),
+            inverseJoinColumns = @JoinColumn(name = "trip_id"))
+    private List<Trip> trips;
+    public Guest(String xd_, String ageGrp) {
+        this.name=xd_;
+        this.ageGroup=ageGrp;
+    }
 
 }
