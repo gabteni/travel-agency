@@ -32,11 +32,12 @@ public class TravelAgencyApplication {
 	@Bean
 	ApplicationRunner initUsers(UserRepository plRepos)
 	{	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+		plRepos.deleteAll();
 		if(!plRepos.findByUserName("test").isPresent()){
 		return x ->{
 			Stream.of(
-					new UserU("test", encoder.encode("test")),
-					new UserU("test2", encoder.encode("test2"))
+					new UserU("test", encoder.encode("2671999test")),
+					new UserU("test2", encoder.encode("2671999test2"))
 			).forEach(plRepos::save);
 		} ;}
 		return null;
