@@ -29,7 +29,7 @@ public class TravelAgencyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TravelAgencyApplication.class, args);
 	}
-	@Bean
+	/*@Bean
 	ApplicationRunner initUsers(UserRepository plRepos)
 	{	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
 		plRepos.deleteAll();
@@ -41,7 +41,7 @@ public class TravelAgencyApplication {
 			).forEach(plRepos::save);
 		} ;}
 		return null;
-	}
+	}*/
 	/*@Bean
 	ApplicationRunner initLocations(LocationRepository plRepos)
 	{
