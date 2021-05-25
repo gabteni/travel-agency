@@ -1,6 +1,8 @@
 package isg.pfe.travelAgency.ServicesImplementation;
 
+import isg.pfe.travelAgency.Entities.Location;
 import isg.pfe.travelAgency.Entities.Trip;
+import isg.pfe.travelAgency.Repositories.LocationRepository;
 import isg.pfe.travelAgency.Repositories.TripRepository;
 import isg.pfe.travelAgency.Services.TripServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,16 +10,28 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 @Service
 public class TripServicesImpl implements TripServices {
 
     @Autowired
     TripRepository tripRepository;
-
+    @Autowired
+    LocationRepository locationRepository;
     @Override
     public ResponseEntity<?> SaveTrip(Trip trip) {
+        tripRepository.save(trip);
+        Set<Location> route=new HashSet<Location>();
+        for (Location location:trip.route) {
+            System.out.println(location.getId()+"<--------------");
+            Location l=locationRepository.findById(location.getId()).get();
+            route.add(l);
+            l.getTrips1().add(trip);
+            locationRepository.saveAndFlush(l);
+
+        }
+        trip.setRoute(route);
         return new ResponseEntity<>(tripRepository.save(trip), HttpStatus.CREATED);
     }
 
