@@ -24,7 +24,7 @@ public class GuideController {
         return guideServices.ListGuides();
     }
     @PutMapping("/Update/{id}")
-    public  ResponseEntity update(@PathVariable Long id,@RequestBody Guide guide){
+    public  ResponseEntity update(@PathVariable Integer id,@RequestBody Guide guide){
         return guideServices.UpdateGuide(id,guide);
     }
     @PostMapping("/New")
@@ -32,11 +32,11 @@ public class GuideController {
         return guideServices.SaveGuide(guide);
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity delete(@PathVariable Integer id){
         return guideServices.DeleteGuide(id);
     }
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity find(@PathVariable ("id")long id){
+    public  ResponseEntity find(@PathVariable ("id")Integer id){
         Log.info("Request for finding gust {}",id);
         return guideServices.FindGuide(id);
     }

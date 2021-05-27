@@ -24,7 +24,7 @@ public class LocationController {
         return locationServices.ListLocations();
     }
     @PutMapping("/Update/{id}")
-    public  ResponseEntity updateLocation(@PathVariable Long id,@RequestBody Location location){
+    public  ResponseEntity updateLocation(@PathVariable Integer id,@RequestBody Location location){
         return locationServices.UpdateLocation(id,location);
     }
     @PostMapping("Optimize")
@@ -37,11 +37,11 @@ public class LocationController {
         return locationServices.SaveLocation(location);
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity deleteLocation(@PathVariable Long id){
+    public ResponseEntity deleteLocation(@PathVariable Integer id){
         return locationServices.DeleteLocation(id);
     }
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity findLocation(@PathVariable ("id")long id){
+    public  ResponseEntity findLocation(@PathVariable ("id")Integer id){
         Log.info("Request for finding location {}",id);
         return locationServices.FindLocation(id);
     }

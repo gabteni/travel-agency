@@ -21,10 +21,11 @@ import java.util.Set;
 @RequiredArgsConstructor
 @Entity
 @AllArgsConstructor
-public class Trip implements Serializable {
+
+public class Trip  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Integer id;
     LocalDateTime departureDateTime;
     LocalDateTime arrivalDateTime;
     @ManyToOne(/*fetch = FetchType.LAZY*/)
@@ -40,13 +41,21 @@ public class Trip implements Serializable {
     List<Location> startDestination;*/
 
 
-    @ManyToMany(mappedBy = "trips1",cascade = CascadeType.REFRESH)
-    @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
+
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(
+            name = "location_trip",
+            joinColumns = @JoinColumn(name = "trip_id"),
+            inverseJoinColumns = @JoinColumn(name = "location_id"))
     public Set<Location> route;
     /*@OneToMany(mappedBy = "trip")
     Set<Route>routes ;*/
 
-    @ManyToMany(mappedBy = "trips",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(
+            name = "guest_trip",
+            joinColumns = @JoinColumn(name = "trip_id"),
+            inverseJoinColumns = @JoinColumn(name = "guest_id"))
     Set<Guest> guests;
     @ManyToOne(/*fetch = FetchType.LAZY*/)
     @JoinColumn(name = "vehicle_id")

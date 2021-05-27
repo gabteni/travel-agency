@@ -23,7 +23,7 @@ public class GuestController {
         return guestServices.ListGuests();
     }
     @PutMapping("/Update/{id}")
-    public  ResponseEntity update(@PathVariable Long id,@RequestBody Guest guest){
+    public  ResponseEntity update(@PathVariable Integer id,@RequestBody Guest guest){
         return guestServices.UpdateGuest(id,guest);
     }
     @PostMapping("/New")
@@ -31,11 +31,11 @@ public class GuestController {
         return guestServices.SaveGuest(guest);
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity delete(@PathVariable Integer id){
         return guestServices.DeleteGuest(id);
     }
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity find(@PathVariable ("id")long id){
+    public  ResponseEntity find(@PathVariable ("id")Integer id){
         Log.info("Request for finding gust {}",id);
         return guestServices.FindGuest(id);
     }

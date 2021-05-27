@@ -24,7 +24,7 @@ public class DriverController {
         return driverServices.ListDrivers();
     }
     @PutMapping("/Update/{id}")
-    public  ResponseEntity update(@PathVariable Long id,@RequestBody Driver driver){
+    public  ResponseEntity update(@PathVariable Integer id,@RequestBody Driver driver){
         return driverServices.UpdateDriver(id,driver);
     }
     @PostMapping("/New")
@@ -32,11 +32,11 @@ public class DriverController {
         return driverServices.SaveDriver(driver);
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity delete(@PathVariable Integer id){
         return driverServices.DeleteDriver(id);
     }
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity find(@PathVariable ("id")long id){
+    public  ResponseEntity find(@PathVariable ("id")Integer id){
         Log.info("Request for finding Driver {}",id);
         return driverServices.FindDriver(id);
     }

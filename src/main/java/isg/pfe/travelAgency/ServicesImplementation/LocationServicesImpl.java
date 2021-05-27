@@ -48,7 +48,7 @@ public class LocationServicesImpl implements LocationServices {
     }
 
     @Override
-    public ResponseEntity DeleteLocation(Long id ) {
+    public ResponseEntity DeleteLocation(Integer id ) {
         Optional<Location> location = locationRepository.findById(id);
         if (!location.isPresent())
         return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -58,7 +58,7 @@ public class LocationServicesImpl implements LocationServices {
     }
 
     @Override
-    public ResponseEntity UpdateLocation(Long id, Location newLocation) {
+    public ResponseEntity UpdateLocation(Integer id, Location newLocation) {
         Optional<Location> location = locationRepository.findById(id);
         if (!location.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -69,7 +69,7 @@ public class LocationServicesImpl implements LocationServices {
     }
 
     @Override
-    public ResponseEntity FindLocation(Long id) {
+    public ResponseEntity FindLocation(Integer id) {
         Optional<Location> location=locationRepository.findById(id);
         if(!location.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

@@ -1,9 +1,12 @@
 package isg.pfe.travelAgency.ServicesImplementation;
 
+import isg.pfe.travelAgency.Entities.Guest;
 import isg.pfe.travelAgency.Entities.Location;
 import isg.pfe.travelAgency.Entities.Trip;
+import isg.pfe.travelAgency.Repositories.GuestRepository;
 import isg.pfe.travelAgency.Repositories.LocationRepository;
 import isg.pfe.travelAgency.Repositories.TripRepository;
+import isg.pfe.travelAgency.Services.GuestServices;
 import isg.pfe.travelAgency.Services.TripServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,9 +22,13 @@ public class TripServicesImpl implements TripServices {
     TripRepository tripRepository;
     @Autowired
     LocationRepository locationRepository;
+    @Autowired
+    GuestServices guestServices;
+    @Autowired
+    GuestRepository guestRepository;
     @Override
     public ResponseEntity<?> SaveTrip(Trip trip) {
-        tripRepository.save(trip);
+        /*tripRepository.save(trip);
         Set<Location> route=new HashSet<Location>();
         for (Location location:trip.route) {
             System.out.println(location.getId()+"<--------------");
@@ -31,8 +38,18 @@ public class TripServicesImpl implements TripServices {
             locationRepository.saveAndFlush(l);
 
         }
-        trip.setRoute(route);
-        return new ResponseEntity<>(tripRepository.save(trip), HttpStatus.CREATED);
+        trip.setRoute(route);*/
+
+        /*trip=tripRepository.save(trip);
+        for(Guest g:trip.getGuests()){
+
+            Guest gg=guestRepository.findById(g.getId()).get();
+            gg.getTrips().add(trip);
+            guestServices.SaveGuest(gg);
+
+            
+        }*/
+        return new ResponseEntity<>( tripRepository.save(trip)  ,HttpStatus.CREATED);
     }
 
     @Override
@@ -44,7 +61,7 @@ public class TripServicesImpl implements TripServices {
     }
 
     @Override
-    public ResponseEntity DeleteTrip(Long id) {
+    public ResponseEntity DeleteTrip(Integer id) {
         Optional<Trip> trip = tripRepository.findById(id);
         if (!trip.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -54,7 +71,7 @@ public class TripServicesImpl implements TripServices {
     }
 
     @Override
-    public ResponseEntity UpdateTrip(Long id, Trip newTrip) {
+    public ResponseEntity UpdateTrip(Integer id, Trip newTrip) {
         Optional<Trip> trip = tripRepository.findById(id);
         if (!trip.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -65,7 +82,7 @@ public class TripServicesImpl implements TripServices {
     }
 
     @Override
-    public ResponseEntity FindTrip(Long id) {
+    public ResponseEntity FindTrip(Integer id) {
         Optional<Trip> trip=tripRepository.findById(id);
         if(!trip.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

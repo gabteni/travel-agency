@@ -8,7 +8,7 @@ import java.util.List;
 public interface DriverServices {
     ResponseEntity<?> SaveDriver(Driver driver);
     ResponseEntity<List<Driver>> ListDrivers();
-    ResponseEntity DeleteDriver(Long id);
-    ResponseEntity UpdateDriver(Long id, Driver newDriver);
-    ResponseEntity FindDriver(Long id);
+    ResponseEntity DeleteDriver(Integer id);
+    ResponseEntity UpdateDriver(Integer id, Driver newDriver);
+    ResponseEntity FindDriver(Integer id);
 }

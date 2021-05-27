@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RepositoryRestResource
-public interface TripRepository extends JpaRepository<Trip,Long> {
+public interface TripRepository extends JpaRepository<Trip,Integer> {
    // @Query("select t from Trip t where t.driver.id =?1")
     List<Trip> findByDriverUserName(String driverUserName);
 }

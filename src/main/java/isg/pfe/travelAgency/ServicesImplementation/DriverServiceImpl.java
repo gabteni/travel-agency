@@ -33,7 +33,7 @@ public class DriverServiceImpl implements DriverServices {
     }
 
     @Override
-    public ResponseEntity DeleteDriver(Long id) {
+    public ResponseEntity DeleteDriver(Integer id) {
 
         Optional<Driver> driver = driverRepository.findById(id);
         if (!driver.isPresent())
@@ -44,7 +44,7 @@ public class DriverServiceImpl implements DriverServices {
     }
 
     @Override
-    public ResponseEntity UpdateDriver(Long id, Driver newDriver) {
+    public ResponseEntity UpdateDriver(Integer id, Driver newDriver) {
         Optional<Driver> driver = driverRepository.findById(id);
         if (!driver.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -55,7 +55,7 @@ public class DriverServiceImpl implements DriverServices {
     }
 
     @Override
-    public ResponseEntity FindDriver(Long id) {
+    public ResponseEntity FindDriver(Integer id) {
         Optional<Driver> driver=driverRepository.findById(id);
         if(!driver.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

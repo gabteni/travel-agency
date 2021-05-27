@@ -29,7 +29,7 @@ public class VehicleServicesImpl implements VehicleServices {
     }
 
     @Override
-    public ResponseEntity DeleteVehicle(Long id) {
+    public ResponseEntity DeleteVehicle(Integer id) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
         if (!vehicle.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -40,7 +40,7 @@ public class VehicleServicesImpl implements VehicleServices {
     }
 
     @Override
-    public ResponseEntity FindVehicle(Long id) {
+    public ResponseEntity FindVehicle(Integer id) {
         Optional<Vehicle> vehicle=vehicleRepository.findById(id);
         if(!vehicle.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -48,7 +48,7 @@ public class VehicleServicesImpl implements VehicleServices {
     }
 
     @Override
-    public ResponseEntity UpdateVehicle(Long id, Vehicle newVehicle) {
+    public ResponseEntity UpdateVehicle(Integer id, Vehicle newVehicle) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
         if (!vehicle.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

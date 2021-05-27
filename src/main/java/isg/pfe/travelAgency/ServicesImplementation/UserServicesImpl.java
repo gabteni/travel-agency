@@ -30,12 +30,12 @@ public class UserServicesImpl implements UserServices {
     }
 
     @Override
-    public ResponseEntity DeleteUser(Long id) {
+    public ResponseEntity DeleteUser(Integer id) {
         return null;
     }
 
     @Override
-    public ResponseEntity UpdateUser(Long id, UserU newUser) {
+    public ResponseEntity UpdateUser(Integer id, UserU newUser) {
         Optional<UserU> userU = userRepository.findById(id);
         if (!userU.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -48,7 +48,7 @@ public class UserServicesImpl implements UserServices {
     }
 
     @Override
-    public ResponseEntity FindUser(Long id) {
+    public ResponseEntity FindUser(Integer id) {
         Optional<UserU> user=userRepository.findById(id);
         if(!user.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

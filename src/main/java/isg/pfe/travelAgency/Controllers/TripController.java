@@ -20,7 +20,7 @@ public class TripController {
         return tripServices.ListTrip();
     }
     @PutMapping("/Update/{id}")
-    public  ResponseEntity updateTrip(@PathVariable Long id,@RequestBody Trip trip){
+    public  ResponseEntity updateTrip(@PathVariable Integer id,@RequestBody Trip trip){
         return tripServices.UpdateTrip(id,trip);
     }
     @PostMapping("/New")
@@ -28,11 +28,11 @@ public class TripController {
         return tripServices.SaveTrip(trip);
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity deleteTrip(@PathVariable Long id){
+    public ResponseEntity deleteTrip(@PathVariable Integer id){
         return tripServices.DeleteTrip(id);
     }
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity findTrip(@PathVariable ("id")long id){
+    public  ResponseEntity findTrip(@PathVariable ("id")Integer id){
 
         return tripServices.FindTrip(id);
     }

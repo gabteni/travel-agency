@@ -19,7 +19,7 @@ import java.util.List;
 public class    Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @ManyToOne
     @JoinColumn(name = "vehiclemodel_id")
     public VehicleModel model;

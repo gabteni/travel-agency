@@ -11,7 +11,7 @@ public interface GuestServices {
 
     ResponseEntity<?> SaveGuest(Guest guest);
     ResponseEntity<List<Guest>> ListGuests();
-    ResponseEntity DeleteGuest(Long id);
-    ResponseEntity UpdateGuest(Long id, Guest newGuest);
-    ResponseEntity FindGuest(Long id);
+    ResponseEntity DeleteGuest(Integer id);
+    ResponseEntity UpdateGuest(Integer id, Guest newGuest);
+    ResponseEntity FindGuest(Integer id);
 }

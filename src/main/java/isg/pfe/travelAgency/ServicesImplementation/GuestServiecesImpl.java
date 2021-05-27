@@ -29,7 +29,7 @@ public class GuestServiecesImpl implements GuestServices {
     }
 
     @Override
-    public ResponseEntity DeleteGuest(Long id) {
+    public ResponseEntity DeleteGuest(Integer id) {
         Optional<Guest> guest = guestRepository.findById(id);
         if (!guest.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -39,7 +39,7 @@ public class GuestServiecesImpl implements GuestServices {
     }
 
     @Override
-    public ResponseEntity UpdateGuest(Long id, Guest newGuest) {
+    public ResponseEntity UpdateGuest(Integer id, Guest newGuest) {
         Optional<Guest> guest = guestRepository.findById(id);
         if (!guest.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -50,7 +50,7 @@ public class GuestServiecesImpl implements GuestServices {
     }
 
     @Override
-    public ResponseEntity FindGuest(Long id) {
+    public ResponseEntity FindGuest(Integer id) {
         Optional<Guest> guest=guestRepository.findById(id);
         if(!guest.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

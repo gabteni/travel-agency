@@ -17,7 +17,7 @@ import java.util.List;
 public class VehicleModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String modelNumber;
     private String modelName;
     private String manufacturer;

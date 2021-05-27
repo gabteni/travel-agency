@@ -34,7 +34,7 @@ public class GuideServiceImpl implements GuideServices {
     }
 
     @Override
-    public ResponseEntity DeleteGuide(Long id) {
+    public ResponseEntity DeleteGuide(Integer id) {
 
         Optional<Guide> guide = guideRepository.findById(id);
         if (!guide.isPresent())
@@ -45,7 +45,7 @@ public class GuideServiceImpl implements GuideServices {
     }
 
     @Override
-    public ResponseEntity UpdateGuide(Long id, Guide newGuide) {
+    public ResponseEntity UpdateGuide(Integer id, Guide newGuide) {
         Optional<Guide> guide = guideRepository.findById(id);
         if (!guide.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -56,7 +56,7 @@ public class GuideServiceImpl implements GuideServices {
     }
 
     @Override
-    public ResponseEntity FindGuide(Long id) {
+    public ResponseEntity FindGuide(Integer id) {
         Optional<Guide> guide=guideRepository.findById(id);
         if(!guide.isPresent())
             return new ResponseEntity(HttpStatus.NOT_FOUND);

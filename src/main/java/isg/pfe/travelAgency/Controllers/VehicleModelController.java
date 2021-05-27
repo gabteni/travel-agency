@@ -23,7 +23,7 @@ public class VehicleModelController {
         return vehicleModelServices.ListVehicleModel();
     }
     @PutMapping("/Update/{id}")
-    public  ResponseEntity updateVehicleModel(@PathVariable Long id,@RequestBody VehicleModel vehicleModel){
+    public  ResponseEntity updateVehicleModel(@PathVariable Integer id,@RequestBody VehicleModel vehicleModel){
         return vehicleModelServices.UpdateVehicleModel(id,vehicleModel);
     }
     @PostMapping("/New")
@@ -31,11 +31,11 @@ public class VehicleModelController {
         return vehicleModelServices.SaveVehicleModel(vehicleModel);
     }
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity deleteVehicleModel(@PathVariable Long id){
+    public ResponseEntity deleteVehicleModel(@PathVariable Integer id){
         return vehicleModelServices.DeleteVehicleModel(id);
     }
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity findVehicleModel(@PathVariable ("id")long id){
+    public  ResponseEntity findVehicleModel(@PathVariable ("id")Integer id){
         Log.info("Request for finding vehicle model {}",id);
         return vehicleModelServices.FindVehicleModel(id);}
 

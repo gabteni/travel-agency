@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     UserServices userServices;
     @PutMapping("/Update/{id}")
-    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody UserU user){
+    public ResponseEntity updateUser(@PathVariable Integer id, @RequestBody UserU user){
         return userServices.UpdateUser(id,user);
     }
     @PostMapping("/New")
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/find/{id}")
-    public  ResponseEntity findUser(@PathVariable ("id")long id){
+    public  ResponseEntity findUser(@PathVariable ("id")Integer id){
         Log.info("Request for finding location {}",id);
         return userServices.FindUser(id);
 

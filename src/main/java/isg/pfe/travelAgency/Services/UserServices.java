@@ -10,9 +10,9 @@ public interface UserServices {
 
         ResponseEntity<?> SaveUser(UserU userU);
         ResponseEntity<List<UserU>> ListUsers();
-        ResponseEntity DeleteUser(Long id);
-        ResponseEntity UpdateUser(Long id,UserU newUser);
-        ResponseEntity FindUser(Long id);
+        ResponseEntity DeleteUser(Integer id);
+        ResponseEntity UpdateUser(Integer id,UserU newUser);
+        ResponseEntity FindUser(Integer id);
         ResponseEntity FindUserName(String name);
 
 }

@@ -29,19 +29,19 @@ public class TravelAgencyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TravelAgencyApplication.class, args);
 	}
-	/*@Bean
-	ApplicationRunner initUsers(UserRepository plRepos)
-	{	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-		plRepos.deleteAll();
-		if(!plRepos.findByUserName("test").isPresent()){
-		return x ->{
-			Stream.of(
-					new UserU("test", encoder.encode("2671999test")),
-					new UserU("test2", encoder.encode("2671999test2"))
-			).forEach(plRepos::save);
-		} ;}
-		return null;
-	}*/
+		/*@Bean
+		ApplicationRunner initUsers(UserRepository plRepos)
+		{	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+			plRepos.deleteAll();
+			if(!plRepos.findByUserName("test").isPresent()){
+			return x ->{
+				Stream.of(
+						new UserU("test", encoder.encode("2671999test")),
+						new UserU("test2", encoder.encode("2671999test2"))
+				).forEach(plRepos::save);
+			} ;}
+			return null;
+		}*/
 	/*@Bean
 	ApplicationRunner initLocations(LocationRepository plRepos)
 	{

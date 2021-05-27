@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class UserU {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @Column(unique = true,nullable = false,name ="username")
     private String userName;
      @Column(nullable = false)

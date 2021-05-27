@@ -9,7 +9,7 @@ import java.util.List;
 public interface VehicleModelServices {
     ResponseEntity<?> SaveVehicleModel(VehicleModel vehicleModel);
     ResponseEntity<List<VehicleModel>> ListVehicleModel();
-    ResponseEntity DeleteVehicleModel(Long id);
-    ResponseEntity UpdateVehicleModel(Long id,VehicleModel newVehicleModel);
-    ResponseEntity FindVehicleModel(Long id);
+    ResponseEntity DeleteVehicleModel(Integer id);
+    ResponseEntity UpdateVehicleModel(Integer id,VehicleModel newVehicleModel);
+    ResponseEntity FindVehicleModel(Integer id);
 }
