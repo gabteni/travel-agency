@@ -14,7 +14,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 @Entity
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","trips1"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","trips1","guests"})
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class Location {
 
     private Set<Trip> trips;
     @OneToMany(mappedBy = "currentPickUpLocation",cascade = CascadeType.ALL)
-    @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
+   //@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
     private Set<Guest> guests;
 
     @ManyToMany(mappedBy = "route",cascade = CascadeType.ALL)
