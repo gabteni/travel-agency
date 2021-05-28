@@ -47,7 +47,7 @@ public class Trip  {
             name = "location_trip",
             joinColumns = @JoinColumn(name = "trip_id"),
             inverseJoinColumns = @JoinColumn(name = "location_id"))
-    public Set<Location> route;
+    public List<Location> route;
     /*@OneToMany(mappedBy = "trip")
     Set<Route>routes ;*/
 
