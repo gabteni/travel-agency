@@ -131,18 +131,22 @@ public class LocationServicesImpl implements LocationServices {
 
             }
 
-        for (int i=0;i<locSize;i++){
-            for (int j=0;j<locSize;j++){
-                G1[j][i]=G1[i][j];
-                System.out.print("  "+G1[i][j]);
-            }
-            System.out.println("");
-
-        }
+//        for (int i=0;i<locSize;i++){
+//            for (int j=0;j<locSize;j++){
+//                G1[j][i]=G1[i][j];
+//                System.out.print("  "+G1[i][j]);
+//            }
+//            System.out.println("");
+//
+//        }
             route=new int[locSize];
             for (int i=0;i<locSize;i++ )
                 route[i]=i;
-            Route res=findRoute(999.0,new Route(route));
+            Route res;
+            if(locSize<=3)
+                res=new Route(route);
+            else{
+            res=findRoute(999.0,new Route(route));}
             //findMinRoute(G1);
             //DistanceMatrixRow dr = dis.rows[0];
            // Long distance = Arrays.stream(dr.elements).mapToLong(distanceMatrixElement -> distanceMatrixElement.distance.inMeters).sum();
