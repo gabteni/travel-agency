@@ -35,7 +35,7 @@ public class Driver extends UserU {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.REFRESH,
-            CascadeType.PERSIST
+
     })
     @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
     private List<Trip> trips;

@@ -50,6 +50,7 @@ public class DriverServiceImpl implements DriverServices {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         else
         {   newDriver.setId(id);
+            newDriver.setTrips(driver.get().getTrips());
             Driver driver1=driverRepository.save(newDriver);
             return new ResponseEntity(driver1,HttpStatus.ACCEPTED);}
     }
