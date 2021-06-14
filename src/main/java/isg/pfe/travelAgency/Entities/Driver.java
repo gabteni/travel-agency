@@ -31,7 +31,12 @@ public class Driver extends UserU {
     private LocalDate endContract;
     private LocalDate PCEndDate;
 
-    @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "driver",cascade =   {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST
+    })
     @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
     private List<Trip> trips;
     public Driver(String userName,String pass){
