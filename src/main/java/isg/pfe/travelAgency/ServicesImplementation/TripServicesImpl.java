@@ -1,7 +1,5 @@
 package isg.pfe.travelAgency.ServicesImplementation;
 
-import isg.pfe.travelAgency.Entities.Guest;
-import isg.pfe.travelAgency.Entities.Location;
 import isg.pfe.travelAgency.Entities.Trip;
 import isg.pfe.travelAgency.Repositories.GuestRepository;
 import isg.pfe.travelAgency.Repositories.LocationRepository;
@@ -91,7 +89,7 @@ public class TripServicesImpl implements TripServices {
 
     @Override
     public ResponseEntity <List<Trip>>FindTripByDriver(String id) {
-        List<Trip>list=tripRepository.findByDriverUserName(id);
+        List<Trip>list=tripRepository.findByDriverUserNameOrderByDepartureDateTime(id);
         if (list.isEmpty())
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         return new ResponseEntity<>(list,HttpStatus.OK) ;
