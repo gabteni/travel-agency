@@ -14,4 +14,5 @@ import java.util.Optional;
 public interface TripRepository extends JpaRepository<Trip,Integer> {
    // @Query("select t from Trip t where t.driver.id =?1")
     List<Trip> findByDriverUserNameOrderByDepartureDateTime(String driverUserName);
+    List<Trip> findByGuideUserNameOrderByDepartureDateTime(String driverUserName);
 }

@@ -13,4 +13,5 @@ public interface TripServices {
     ResponseEntity UpdateTrip(Integer id, Trip newTrip);
     ResponseEntity FindTrip(Integer id);
     ResponseEntity <List<Trip>>FindTripByDriver(String id);
+    ResponseEntity <List<Trip>>FindTripByGuide(String id);
 }

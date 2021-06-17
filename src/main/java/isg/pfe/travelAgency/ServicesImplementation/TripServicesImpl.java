@@ -94,4 +94,10 @@ public class TripServicesImpl implements TripServices {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         return new ResponseEntity<>(list,HttpStatus.OK) ;
     }
+    public ResponseEntity <List<Trip>>FindTripByGuide(String id) {
+        List<Trip>list=tripRepository.findByGuideUserNameOrderByDepartureDateTime(id);
+        if (list.isEmpty())
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(list,HttpStatus.OK) ;
+    }
 }

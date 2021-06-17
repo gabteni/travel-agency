@@ -41,4 +41,9 @@ public class TripController {
 
         return tripServices.FindTripByDriver(id);
     }
+    @GetMapping(value = "/find/guide/{id}")
+    public  ResponseEntity findTripGuide(@PathVariable ("id")String id){
+
+        return tripServices.FindTripByGuide(id);
+    }
 }
